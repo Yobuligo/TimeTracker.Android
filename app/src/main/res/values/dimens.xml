@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="ListItemColumnPadding">16dp</dimen>
+    <dimen name="ListItemColumnMargin">12dp</dimen>
+    <dimen name="SubjectTextViewMargin">12dp</dimen>
+    <dimen name="SubjectImageButtonMargin">12dp</dimen>
 </resources>

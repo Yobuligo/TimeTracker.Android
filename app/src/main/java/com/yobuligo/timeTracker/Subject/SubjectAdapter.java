@@ -1,12 +1,18 @@
 package com.yobuligo.timeTracker.Subject;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.yobuligo.timeTracker.R;
@@ -16,11 +22,14 @@ import java.util.ArrayList;
 public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectViewHolder> {
 
     private Context context;
-    private SubjectList subjectList;
+    private SubjectContext subjectContext;
+    private int colorCount;
+    private ArrayList<SubjectViewHolder> subjectViewHolders = new ArrayList<>();
+    private RecyclerView recyclerView;
 
-    public SubjectAdapter(Context context, SubjectList subjectList) {
+    public SubjectAdapter(Context context, SubjectContext subjectContext) {
         this.context = context;
-        this.subjectList = subjectList;
+        this.subjectContext = subjectContext;
     }
 
     @NonNull
@@ -33,20 +42,132 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectV
 
     @Override
     public void onBindViewHolder(@NonNull SubjectViewHolder holder, int position) {
-        holder.textViewSubjectDescription.setText(subjectList.getSubjects().get(position).getDescription());
+        int color = getNextColor();
+        holder.textViewSubjectDescription.setText(subjectContext.getSubjectList().getSubjects().get(position).getDescription());
+        holder.constraintLayoutSubject.setBackgroundColor(context.getResources().getColor(color));
+        holder.imageButtonSubjectLocation.setBackgroundColor(context.getResources().getColor(color));
+        holder.subject = subjectContext.getSubjectList().getSubjects().get(position);
+        holder.subjectContext = subjectContext;
+        holder.renderElements();
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+        this.recyclerView = recyclerView;
     }
 
     @Override
     public int getItemCount() {
-        return subjectList.getSubjects().size();
+        return subjectContext.getSubjectList().getSubjects().size();
+    }
+
+    private int getNextColor() {
+        colorCount++;
+
+        switch (colorCount) {
+            case 1:
+                return R.color.subjectColorLightBlue;
+            case 2:
+                return R.color.subjectColorLightGreen;
+            case 3:
+                return R.color.subjectColorYellow;
+            case 4:
+                return R.color.subjectColorLightRed;
+            default:
+                return R.color.subjectColorDarkBlue;
+        }
     }
 
     class SubjectViewHolder extends RecyclerView.ViewHolder {
         final TextView textViewSubjectDescription;
+        final ConstraintLayout constraintLayoutSubject;
+        final ImageButton imageButtonSubjectLocation;
+        final ImageView imageViewIsSubjectActiveIndicator;
+        SubjectContext subjectContext;
+        Subject subject;
 
         public SubjectViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewSubjectDescription = itemView.findViewById(R.id.TextSubjectDescription);
+            imageViewIsSubjectActiveIndicator = itemView.findViewById(R.id.ui_img_subject_run_indicator);
+            textViewSubjectDescription = itemView.findViewById(R.id.ui_txt_subject_description);
+            constraintLayoutSubject = itemView.findViewById(R.id.ui_lay_item_subject);
+            constraintLayoutSubject.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    toggleTimeTracking();
+                    renderViewHolders();
+                }
+            });
+
+            imageButtonSubjectLocation = itemView.findViewById(R.id.ui_btn_location);
+            imageButtonSubjectLocation.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    toggleLocation();
+                }
+            });
+
+        }
+
+        public void renderElements() {
+            if (subject.isLocationable()) {
+                if (subject.getLocation() == Location.onSite) {
+                    imageButtonSubjectLocation.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_location_on_black_48dp));
+                } else {
+                    imageButtonSubjectLocation.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_home_black_48dp));
+                }
+            } else {
+                imageButtonSubjectLocation.setVisibility(View.INVISIBLE);
+            }
+
+            if (subject.supportsVariableTimeTracking()) {
+                if (subjectContext.getTimeTracker().isSubjectActive(subject)) {
+                    imageViewIsSubjectActiveIndicator.setVisibility(View.VISIBLE);
+                    startAnimation(imageViewIsSubjectActiveIndicator);
+                } else {
+                    imageViewIsSubjectActiveIndicator.setVisibility(View.INVISIBLE);
+                }
+            } else {
+                imageViewIsSubjectActiveIndicator.setVisibility(View.INVISIBLE);
+            }
+        }
+
+        private void startAnimation(ImageView imageViewIsSubjectActiveIndicator) {
+            ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(imageViewIsSubjectActiveIndicator, "rotation", 0f, 360f);
+            objectAnimator.setDuration(1000);
+            objectAnimator.setRepeatCount(Animation.INFINITE);
+            objectAnimator.setInterpolator(new LinearInterpolator());
+            objectAnimator.start();
+        }
+
+        private void toggleLocation() {
+            if (subject.getLocation() == Location.home) {
+                subject.setLocation(Location.onSite);
+            } else {
+                subject.setLocation(Location.home);
+            }
+
+            renderElements();
+        }
+
+        private void toggleTimeTracking() {
+            if (subjectContext.getTimeTracker().isSubjectActive(subject)) {
+                subjectContext.getTimeTracker().stopTracking();
+            } else {
+                subjectContext.getTimeTracker().startTracking(subject);
+            }
+
+            renderElements();
+        }
+
+        private void renderViewHolders() {
+            for (int i = 0; i < recyclerView.getChildCount(); i++) {
+                SubjectViewHolder subjectViewHolder = (SubjectViewHolder) recyclerView.getChildViewHolder(recyclerView.getChildAt(i));
+                subjectViewHolder.renderElements();
+            }
+
         }
     }
+
 }

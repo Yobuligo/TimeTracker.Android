@@ -15,11 +15,11 @@ import okhttp3.Response;
 public class SubjectLoader extends AsyncTask<Void, Integer, ArrayList<Subject>> {
 
     private SubjectAdapter subjectAdapter;
-    private SubjectList subjectList;
+    private SubjectContext subjectContext;
 
-    public SubjectLoader(SubjectAdapter subjectAdapter, SubjectList subjectList) {
+    public SubjectLoader(SubjectAdapter subjectAdapter, SubjectContext subjectContext) {
         this.subjectAdapter = subjectAdapter;
-        this.subjectList = subjectList;
+        this.subjectContext = subjectContext;
     }
 
     @Override
@@ -52,7 +52,7 @@ public class SubjectLoader extends AsyncTask<Void, Integer, ArrayList<Subject>> 
         super.onPostExecute(subjects);
         for (Subject subject :
                 subjects) {
-            subjectList.AddSubject(subject);
+            subjectContext.getSubjectList().AddSubject(subject);
         }
         subjectAdapter.notifyDataSetChanged();
     }

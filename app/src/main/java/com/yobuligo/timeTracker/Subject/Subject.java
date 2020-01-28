@@ -8,36 +8,28 @@ public class Subject {
     private String description;
     private Date createdAt;
     private Date changedAt;
+    private Location location;
+    private Boolean locationable;
+    private Boolean supportsVariableTimeTracking;
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public Location getLocation() {
+        return location;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public Boolean isLocationable() {
+        return locationable;
     }
 
-    public Date getChangedAt() {
-        return changedAt;
+    public Boolean supportsVariableTimeTracking() {
+        return supportsVariableTimeTracking;
     }
 
-    public void setChangedAt(Date changedAt) {
-        this.changedAt = changedAt;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }
