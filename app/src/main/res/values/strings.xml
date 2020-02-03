@@ -1,4 +1,5 @@
 <resources>
-    <string name="app_name">MainActivity</string>
+    <string name="app_name">Time Tracking</string>
     <string name="btn_home">Home</string>
+    <string name="btn_tracked_time">Tracked Time</string>
 </resources>
