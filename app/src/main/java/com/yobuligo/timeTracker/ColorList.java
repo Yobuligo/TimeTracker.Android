@@ -10,7 +10,6 @@ public class ColorList {
 
     public ColorList() {
         colors.add(R.color.colorF39A27);
-        colors.add(R.color.colorEADA52);
         colors.add(R.color.color03C03C);
         colors.add(R.color.color579ABE);
         colors.add(R.color.color976ED7);
