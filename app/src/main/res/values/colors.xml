@@ -3,9 +3,48 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
     <color name="subjectColorLightBlue">#95BCF2</color>
     <color name="subjectColorLightGreen">#B6D7A8</color>
     <color name="subjectColorYellow">#FFE599</color>
     <color name="subjectColorLightRed">#EA9999</color>
     <color name="subjectColorDarkBlue">#6FA8DC</color>
+
+    <color name="colorC23B23">#C23B23</color>
+    <color name="colorF39A27">#F39A27</color>
+    <color name="colorEADA52">#EADA52</color>
+    <color name="color03C03C">#03C03C</color>
+    <color name="color579ABE">#579ABE</color>
+    <color name="color976ED7">#976ED7</color>
+    <color name="colorFFB5E8">#FFB5E8</color>
+    <color name="colorFF9CEE">#FF9CEE</color>
+    <color name="colorFFCCF9">#FFCCF9</color>
+    <color name="colorFCC2FF">#FCC2FF</color>
+    <color name="colorF6A6FF">#F6A6FF</color>
+    <color name="colorB28DFF">#B28DFF</color>
+    <color name="colorC5A3FF">#C5A3FF</color>
+    <color name="colorD5AAFF">#D5AAFF</color>
+    <color name="colorECD4FF">#ECD4FF</color>
+    <color name="colorFBE4FF">#FBE4FF</color>
+    <color name="colorDCD3FF">#DCD3FF</color>
+    <color name="colorA79AFF">#A79AFF</color>
+    <color name="colorB5B9FF">#B5B9FF</color>
+    <color name="color97A2FF">#97A2FF</color>
+    <color name="colorAFCBFF">#AFCBFF</color>
+    <color name="colorAFF8DB">#AFF8DB</color>
+    <color name="colorC4FAF8">#C4FAF8</color>
+    <color name="color85E3FF">#85E3FF</color>
+    <color name="colorACE7FF">#ACE7FF</color>
+    <color name="color6EB5FF">#6EB5FF</color>
+    <color name="colorBFFCC6">#BFFCC6</color>
+    <color name="colorDBFFD6">#DBFFD6</color>
+    <color name="colorF3FFE3">#F3FFE3</color>
+    <color name="colorE7FFAC">#E7FFAC</color>
+    <color name="colorFFFFD1">#FFFFD1</color>
+    <color name="colorFFC9DE">#FFC9DE</color>
+    <color name="colorFFABAB">#FFABAB</color>
+    <color name="colorFFBEBC">#FFBEBC</color>
+    <color name="colorFFCBC1">#FFCBC1</color>
+    <color name="colorFFF5BA">#FFF5BA</color>
+
 </resources>

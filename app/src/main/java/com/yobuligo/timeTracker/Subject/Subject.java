@@ -11,6 +11,7 @@ public class Subject {
     private Location location;
     private Boolean locationable;
     private Boolean supportsVariableTimeTracking;
+    private String colorCode;
 
     public String getDescription() {
         return description;
@@ -32,4 +33,7 @@ public class Subject {
         return supportsVariableTimeTracking;
     }
 
+    public String getColorCode() {
+        return colorCode;
+    }
 }

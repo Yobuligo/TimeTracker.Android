@@ -15,17 +15,15 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.yobuligo.timeTracker.ColorList;
 import com.yobuligo.timeTracker.R;
-
-import java.util.ArrayList;
 
 public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectViewHolder> {
 
     private Context context;
     private SubjectContext subjectContext;
-    private int colorCount;
-    private ArrayList<SubjectViewHolder> subjectViewHolders = new ArrayList<>();
     private RecyclerView recyclerView;
+    private ColorList colorList = new ColorList();
 
     public SubjectAdapter(Context context, SubjectContext subjectContext) {
         this.context = context;
@@ -42,11 +40,11 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectV
 
     @Override
     public void onBindViewHolder(@NonNull SubjectViewHolder holder, int position) {
-        int color = getNextColor();
+        holder.subject = subjectContext.getSubjectList().getSubjects().get(position);
+        int color = holder.getColor();
         holder.textViewSubjectDescription.setText(subjectContext.getSubjectList().getSubjects().get(position).getDescription());
         holder.constraintLayoutSubject.setBackgroundColor(context.getResources().getColor(color));
         holder.imageButtonSubjectLocation.setBackgroundColor(context.getResources().getColor(color));
-        holder.subject = subjectContext.getSubjectList().getSubjects().get(position);
         holder.subjectContext = subjectContext;
         holder.renderElements();
     }
@@ -60,23 +58,6 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectV
     @Override
     public int getItemCount() {
         return subjectContext.getSubjectList().getSubjects().size();
-    }
-
-    private int getNextColor() {
-        colorCount++;
-
-        switch (colorCount) {
-            case 1:
-                return R.color.subjectColorLightBlue;
-            case 2:
-                return R.color.subjectColorLightGreen;
-            case 3:
-                return R.color.subjectColorYellow;
-            case 4:
-                return R.color.subjectColorLightRed;
-            default:
-                return R.color.subjectColorDarkBlue;
-        }
     }
 
     class SubjectViewHolder extends RecyclerView.ViewHolder {
@@ -130,6 +111,15 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectV
                 }
             } else {
                 imageViewIsSubjectActiveIndicator.setVisibility(View.INVISIBLE);
+            }
+        }
+
+        private int getColor() {
+            String colorCode = subject.getColorCode();
+            if (colorCode != null) {
+                return context.getResources().getIdentifier(colorCode, "color", context.getPackageName());
+            } else {
+                return colorList.getNext();
             }
         }
 
