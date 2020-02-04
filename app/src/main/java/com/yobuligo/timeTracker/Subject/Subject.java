@@ -2,7 +2,7 @@ package com.yobuligo.timeTracker.Subject;
 
 import java.util.Date;
 
-public class Subject {
+public class Subject implements ISubject {
 
     private Long id;
     private String description;

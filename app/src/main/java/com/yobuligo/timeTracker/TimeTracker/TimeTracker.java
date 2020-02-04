@@ -31,6 +31,10 @@ public class TimeTracker {
         return activeTimeFrame.getSubject() == subject;
     }
 
+    public TimeFrameList getTimeFrameList() {
+        return timeFrameList;
+    }
+
     private void stopActiveTimeFrame() {
         if (activeTimeFrame == null) {
             return;
