@@ -21,11 +21,11 @@ import com.yobuligo.timeTracker.R;
 public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectViewHolder> {
 
     private Context context;
-    private SubjectContext subjectContext;
+    private ISubjectContext subjectContext;
     private RecyclerView recyclerView;
     private ColorList colorList = new ColorList();
 
-    public SubjectAdapter(Context context, SubjectContext subjectContext) {
+    public SubjectAdapter(Context context, ISubjectContext subjectContext) {
         this.context = context;
         this.subjectContext = subjectContext;
     }
@@ -65,8 +65,8 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectV
         final ConstraintLayout constraintLayoutSubject;
         final ImageButton imageButtonSubjectLocation;
         final ImageView imageViewIsSubjectActiveIndicator;
-        SubjectContext subjectContext;
-        Subject subject;
+        ISubjectContext subjectContext;
+        ISubject subject;
 
         public SubjectViewHolder(@NonNull View itemView) {
             super(itemView);

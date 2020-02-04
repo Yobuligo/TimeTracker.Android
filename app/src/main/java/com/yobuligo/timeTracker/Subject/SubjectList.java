@@ -2,15 +2,15 @@ package com.yobuligo.timeTracker.Subject;
 
 import java.util.ArrayList;
 
-public class SubjectList {
+public class SubjectList implements ISubjectList {
 
-    private ArrayList<Subject> subjects = new ArrayList<>();
+    private ArrayList<ISubject> subjects = new ArrayList<>();
 
-    public ArrayList<Subject> getSubjects() {
+    public ArrayList<ISubject> getSubjects() {
         return subjects;
     }
 
-    public void AddSubject(Subject subject) {
+    public void AddSubject(ISubject subject) {
         subjects.add(subject);
     }
 

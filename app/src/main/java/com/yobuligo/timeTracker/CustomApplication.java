@@ -2,13 +2,14 @@ package com.yobuligo.timeTracker;
 
 import android.app.Application;
 
+import com.yobuligo.timeTracker.Subject.ISubjectContext;
 import com.yobuligo.timeTracker.Subject.SubjectContext;
 
 public class CustomApplication extends Application {
 
-    private SubjectContext subjectContext = new SubjectContext();
+    private ISubjectContext subjectContext = new SubjectContext();
 
-    protected SubjectContext getSubjectContext() {
+    protected ISubjectContext getSubjectContext() {
         return subjectContext;
     }
 }

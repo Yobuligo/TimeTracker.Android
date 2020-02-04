@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.yobuligo.timeTracker.Subject.ISubjectContext;
+
 public class BaseActivity extends AppCompatActivity {
 
     @Override
@@ -13,5 +15,8 @@ public class BaseActivity extends AppCompatActivity {
 
     }
 
-    protected
+    protected ISubjectContext getSubjectContext() {
+        CustomApplication customApplication = (CustomApplication) getApplication();
+        return customApplication.getSubjectContext();
+    }
 }

@@ -2,25 +2,25 @@ package com.yobuligo.timeTracker.TimeTracker;
 
 import android.util.Log;
 
+import com.yobuligo.timeTracker.Subject.ISubject;
 import com.yobuligo.timeTracker.Subject.Location;
-import com.yobuligo.timeTracker.Subject.Subject;
 
 import java.util.Date;
 
-public class TimeFrame {
+public class TimeFrame implements ITimeFrame {
 
     private Boolean isRunning = false;
-    private Subject subject;
+    private ISubject subject;
     private Date startTime;
     private Date endTime;
     private Location location;
 
-    public TimeFrame(Subject subject) {
+    public TimeFrame(ISubject subject) {
         this.subject = subject;
         this.location = subject.getLocation();
     }
 
-    public Subject getSubject() {
+    public ISubject getSubject() {
         return subject;
     }
 

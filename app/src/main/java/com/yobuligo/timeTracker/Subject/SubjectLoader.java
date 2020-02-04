@@ -12,19 +12,19 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class SubjectLoader extends AsyncTask<Void, Integer, ArrayList<Subject>> {
+public class SubjectLoader extends AsyncTask<Void, Integer, ArrayList<ISubject>> {
 
     private SubjectAdapter subjectAdapter;
-    private SubjectContext subjectContext;
+    private ISubjectContext subjectContext;
 
-    public SubjectLoader(SubjectAdapter subjectAdapter, SubjectContext subjectContext) {
+    public SubjectLoader(SubjectAdapter subjectAdapter, ISubjectContext subjectContext) {
         this.subjectAdapter = subjectAdapter;
         this.subjectContext = subjectContext;
     }
 
     @Override
-    protected ArrayList<Subject> doInBackground(Void... voids) {
-        ArrayList<Subject> subjects = new ArrayList<>();
+    protected ArrayList<ISubject> doInBackground(Void... voids) {
+        ArrayList<ISubject> subjects = new ArrayList<>();
 
         OkHttpClient client = new OkHttpClient();
         String url = "http://10.0.2.2:8080/api/subjects";
@@ -48,9 +48,9 @@ public class SubjectLoader extends AsyncTask<Void, Integer, ArrayList<Subject>> 
     }
 
     @Override
-    protected void onPostExecute(ArrayList<Subject> subjects) {
+    protected void onPostExecute(ArrayList<ISubject> subjects) {
         super.onPostExecute(subjects);
-        for (Subject subject :
+        for (ISubject subject :
                 subjects) {
             subjectContext.getSubjectList().AddSubject(subject);
         }

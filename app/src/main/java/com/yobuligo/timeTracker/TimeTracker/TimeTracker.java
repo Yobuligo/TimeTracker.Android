@@ -2,14 +2,14 @@ package com.yobuligo.timeTracker.TimeTracker;
 
 import android.util.Log;
 
-import com.yobuligo.timeTracker.Subject.Subject;
+import com.yobuligo.timeTracker.Subject.ISubject;
 
-public class TimeTracker {
+public class TimeTracker implements ITimeTracker {
 
-    private TimeFrame activeTimeFrame;
-    private TimeFrameList timeFrameList = new TimeFrameList();
+    private ITimeFrame activeTimeFrame;
+    private ITimeFrameList timeFrameList = new TimeFrameList();
 
-    public void startTracking(Subject subject) {
+    public void startTracking(ISubject subject) {
         if (activeTimeFrame != null) {
             if (activeTimeFrame.getSubject() == subject) {
                 return;
@@ -23,7 +23,7 @@ public class TimeTracker {
         stopActiveTimeFrame();
     }
 
-    public Boolean isSubjectActive(Subject subject) {
+    public Boolean isSubjectActive(ISubject subject) {
         if (activeTimeFrame == null) {
             return false;
         }
@@ -31,7 +31,7 @@ public class TimeTracker {
         return activeTimeFrame.getSubject() == subject;
     }
 
-    public TimeFrameList getTimeFrameList() {
+    public ITimeFrameList getTimeFrameList() {
         return timeFrameList;
     }
 
@@ -45,8 +45,8 @@ public class TimeTracker {
         printTimeFrameList();
     }
 
-    private void startNewTimeFrame(Subject subject) {
-        TimeFrame timeFrame = new TimeFrame(subject);
+    private void startNewTimeFrame(ISubject subject) {
+        ITimeFrame timeFrame = new TimeFrame(subject);
         timeFrameList.addTimeFrame(timeFrame);
         activeTimeFrame = timeFrame;
         activeTimeFrame.start();
@@ -54,7 +54,7 @@ public class TimeTracker {
     }
 
     private void printTimeFrameList() {
-        for (TimeFrame timeFrame :
+        for (ITimeFrame timeFrame :
                 timeFrameList.getTimeFrames()) {
             Log.i(getClass().toString(), "printTimeFrame: "
                     + timeFrame.getSubject().getDescription() + " "

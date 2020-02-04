@@ -1,44 +1,29 @@
 package com.yobuligo.timeTracker;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
 import com.yobuligo.timeTracker.Subject.SubjectAdapter;
-import com.yobuligo.timeTracker.Subject.Subject;
-import com.yobuligo.timeTracker.Subject.SubjectContext;
-import com.yobuligo.timeTracker.Subject.SubjectList;
 import com.yobuligo.timeTracker.Subject.SubjectLoader;
-import com.yobuligo.timeTracker.TimeTracker.TimeTracker;
 
-import java.util.ArrayList;
-
-public class MainActivity extends AppCompatActivity {
-    private SubjectContext subjectContext;
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        CustomApplication customApplication = (CustomApplication) getApplication();
-        subjectContext = customApplication.getSubjectContext();
 
         setContentView(R.layout.activity_main);
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        SubjectAdapter subjectAdapter = new SubjectAdapter(this, subjectContext);
+        SubjectAdapter subjectAdapter = new SubjectAdapter(this, getSubjectContext());
 
-        SubjectLoader subjectLoader = new SubjectLoader(subjectAdapter, subjectContext);
+        SubjectLoader subjectLoader = new SubjectLoader(subjectAdapter, getSubjectContext());
         subjectLoader.execute();
 
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
