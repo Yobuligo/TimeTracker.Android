@@ -1,4 +1,4 @@
-package com.yobuligo.timeTracker.Subject;
+package com.yobuligo.timeTracker.activity.subjectOverviewActivity;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
@@ -15,8 +15,11 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.yobuligo.timeTracker.Activity.ColorList;
+import com.yobuligo.timeTracker.activity.ColorList;
 import com.yobuligo.timeTracker.R;
+import com.yobuligo.timeTracker.model.subject.ISubject;
+import com.yobuligo.timeTracker.model.subject.ISubjectContext;
+import com.yobuligo.timeTracker.model.subject.Location;
 
 public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectViewHolder> {
 

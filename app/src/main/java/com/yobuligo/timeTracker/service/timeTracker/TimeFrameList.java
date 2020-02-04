@@ -1,4 +1,4 @@
-package com.yobuligo.timeTracker.TimeTracker;
+package com.yobuligo.timeTracker.service.timeTracker;
 
 import java.util.ArrayList;
 

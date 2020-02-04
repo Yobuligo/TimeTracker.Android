@@ -1,10 +1,11 @@
-package com.yobuligo.timeTracker.Activity;
+package com.yobuligo.timeTracker.activity.timeFrameOverviewActivity;
 
 import android.os.Bundle;
 
+import com.yobuligo.timeTracker.activity.BaseActivity;
 import com.yobuligo.timeTracker.R;
 
-public class TimeFrameListActivity extends BaseActivity {
+public class TimeFrameOverviewActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

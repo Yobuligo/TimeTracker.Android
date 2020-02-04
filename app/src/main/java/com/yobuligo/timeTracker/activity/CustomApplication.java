@@ -1,9 +1,9 @@
-package com.yobuligo.timeTracker.Activity;
+package com.yobuligo.timeTracker.activity;
 
 import android.app.Application;
 
-import com.yobuligo.timeTracker.Subject.ISubjectContext;
-import com.yobuligo.timeTracker.Subject.SubjectContext;
+import com.yobuligo.timeTracker.model.subject.ISubjectContext;
+import com.yobuligo.timeTracker.model.subject.SubjectContext;
 
 public class CustomApplication extends Application {
 

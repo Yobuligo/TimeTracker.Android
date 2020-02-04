@@ -1,9 +1,10 @@
-package com.yobuligo.timeTracker.Subject;
+package com.yobuligo.timeTracker.model.subject;
 
 import android.os.AsyncTask;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.yobuligo.timeTracker.activity.subjectOverviewActivity.SubjectOverviewActivity.SubjectAdapter;
 
 import java.io.IOException;
 import java.util.ArrayList;

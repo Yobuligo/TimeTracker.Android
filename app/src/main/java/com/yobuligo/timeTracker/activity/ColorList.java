@@ -1,4 +1,4 @@
-package com.yobuligo.timeTracker.Activity;
+package com.yobuligo.timeTracker.activity;
 
 import com.yobuligo.timeTracker.R;
 

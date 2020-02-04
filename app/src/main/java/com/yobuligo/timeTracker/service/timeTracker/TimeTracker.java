@@ -1,8 +1,8 @@
-package com.yobuligo.timeTracker.TimeTracker;
+package com.yobuligo.timeTracker.service.timeTracker;
 
 import android.util.Log;
 
-import com.yobuligo.timeTracker.Subject.ISubject;
+import com.yobuligo.timeTracker.model.subject.ISubject;
 
 public class TimeTracker implements ITimeTracker {
 

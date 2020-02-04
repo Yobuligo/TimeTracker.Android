@@ -1,7 +1,7 @@
-package com.yobuligo.timeTracker.Subject;
+package com.yobuligo.timeTracker.model.subject;
 
-import com.yobuligo.timeTracker.TimeTracker.ITimeTracker;
-import com.yobuligo.timeTracker.TimeTracker.TimeTracker;
+import com.yobuligo.timeTracker.service.timeTracker.ITimeTracker;
+import com.yobuligo.timeTracker.service.timeTracker.TimeTracker;
 
 public class SubjectContext implements ISubjectContext {
 

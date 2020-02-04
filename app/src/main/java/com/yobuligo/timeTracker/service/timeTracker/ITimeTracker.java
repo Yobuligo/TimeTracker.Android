@@ -1,6 +1,6 @@
-package com.yobuligo.timeTracker.TimeTracker;
+package com.yobuligo.timeTracker.service.timeTracker;
 
-import com.yobuligo.timeTracker.Subject.ISubject;
+import com.yobuligo.timeTracker.model.subject.ISubject;
 
 public interface ITimeTracker {
     void startTracking(ISubject subject);

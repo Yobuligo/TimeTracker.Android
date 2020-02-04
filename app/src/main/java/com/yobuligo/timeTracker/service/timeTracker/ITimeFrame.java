@@ -1,7 +1,7 @@
-package com.yobuligo.timeTracker.TimeTracker;
+package com.yobuligo.timeTracker.service.timeTracker;
 
-import com.yobuligo.timeTracker.Subject.ISubject;
-import com.yobuligo.timeTracker.Subject.Location;
+import com.yobuligo.timeTracker.model.subject.ISubject;
+import com.yobuligo.timeTracker.model.subject.Location;
 
 import java.util.Date;
 

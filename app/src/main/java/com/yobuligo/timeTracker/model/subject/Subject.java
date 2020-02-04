@@ -1,4 +1,4 @@
-package com.yobuligo.timeTracker.Subject;
+package com.yobuligo.timeTracker.model.subject;
 
 import java.util.Date;
 
