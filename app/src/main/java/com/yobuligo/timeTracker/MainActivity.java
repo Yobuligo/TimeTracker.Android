@@ -29,11 +29,11 @@ public class MainActivity extends BaseActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setAdapter(subjectAdapter);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationViewListener());
+        //BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
+        //bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationViewListener());
     }
 
-    class BottomNavigationViewListener implements BottomNavigationView.OnNavigationItemSelectedListener {
+    /*class BottomNavigationViewListener implements BottomNavigationView.OnNavigationItemSelectedListener {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             if (menuItem.getItemId() == R.id.menu_item_tracked_time) {
@@ -55,5 +55,5 @@ public class MainActivity extends BaseActivity {
         }
         return super.onOptionsItemSelected(item);
 
-    }
+    }*/
 }
