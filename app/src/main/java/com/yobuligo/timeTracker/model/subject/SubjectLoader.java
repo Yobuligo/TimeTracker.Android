@@ -4,7 +4,7 @@ import android.os.AsyncTask;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.yobuligo.timeTracker.activity.subjectOverviewActivity.SubjectOverviewActivity.SubjectAdapter;
+import com.yobuligo.timeTracker.activity.subjectOverviewActivity.SubjectOverviewAdapter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,11 +15,11 @@ import okhttp3.Response;
 
 public class SubjectLoader extends AsyncTask<Void, Integer, ArrayList<ISubject>> {
 
-    private SubjectAdapter subjectAdapter;
+    private SubjectOverviewAdapter subjectOverviewAdapter;
     private ISubjectContext subjectContext;
 
-    public SubjectLoader(SubjectAdapter subjectAdapter, ISubjectContext subjectContext) {
-        this.subjectAdapter = subjectAdapter;
+    public SubjectLoader(SubjectOverviewAdapter subjectOverviewAdapter, ISubjectContext subjectContext) {
+        this.subjectOverviewAdapter = subjectOverviewAdapter;
         this.subjectContext = subjectContext;
     }
 
@@ -55,6 +55,6 @@ public class SubjectLoader extends AsyncTask<Void, Integer, ArrayList<ISubject>>
                 subjects) {
             subjectContext.getSubjectList().AddSubject(subject);
         }
-        subjectAdapter.notifyDataSetChanged();
+        subjectOverviewAdapter.notifyDataSetChanged();
     }
 }

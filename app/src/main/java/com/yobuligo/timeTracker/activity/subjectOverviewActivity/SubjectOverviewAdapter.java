@@ -21,14 +21,14 @@ import com.yobuligo.timeTracker.model.subject.ISubject;
 import com.yobuligo.timeTracker.model.subject.ISubjectContext;
 import com.yobuligo.timeTracker.model.subject.Location;
 
-public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectViewHolder> {
+public class SubjectOverviewAdapter extends RecyclerView.Adapter<SubjectOverviewAdapter.SubjectViewHolder> {
 
     private Context context;
     private ISubjectContext subjectContext;
     private RecyclerView recyclerView;
     private ColorList colorList = new ColorList();
 
-    public SubjectAdapter(Context context, ISubjectContext subjectContext) {
+    public SubjectOverviewAdapter(Context context, ISubjectContext subjectContext) {
         this.context = context;
         this.subjectContext = subjectContext;
     }

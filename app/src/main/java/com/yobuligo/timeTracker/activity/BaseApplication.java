@@ -5,11 +5,12 @@ import android.app.Application;
 import com.yobuligo.timeTracker.model.subject.ISubjectContext;
 import com.yobuligo.timeTracker.model.subject.SubjectContext;
 
-public class CustomApplication extends Application {
+public class BaseApplication extends Application {
 
     private ISubjectContext subjectContext = new SubjectContext();
 
     protected ISubjectContext getSubjectContext() {
         return subjectContext;
     }
+
 }

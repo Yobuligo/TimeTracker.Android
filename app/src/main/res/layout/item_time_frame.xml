@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayoutLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</ConstraintLayout>
+    <TextView
+        android:id="@+id/ui_txt_subject_description"
+        android:width="100dp"
+        android:height="50dp" />
+
+</LinearLayoutLayout>

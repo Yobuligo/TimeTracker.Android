@@ -9,9 +9,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.yobuligo.timeTracker.R;
 import com.yobuligo.timeTracker.activity.subjectOverviewActivity.SubjectOverviewActivity;
 import com.yobuligo.timeTracker.activity.timeFrameOverviewActivity.TimeFrameOverviewActivity;
-import com.yobuligo.timeTracker.R;
 import com.yobuligo.timeTracker.model.subject.ISubjectContext;
 
 public class BaseActivity extends AppCompatActivity {
@@ -29,8 +29,8 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected ISubjectContext getSubjectContext() {
-        CustomApplication customApplication = (CustomApplication) getApplication();
-        return customApplication.getSubjectContext();
+        BaseApplication baseApplication = (BaseApplication) getApplication();
+        return baseApplication.getSubjectContext();
     }
 
     class BottomNavigationViewListener implements BottomNavigationView.OnNavigationItemSelectedListener {
