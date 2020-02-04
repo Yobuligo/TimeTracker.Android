@@ -1,6 +1,8 @@
-package com.yobuligo.timeTracker;
+package com.yobuligo.timeTracker.Activity;
 
 import android.os.Bundle;
+
+import com.yobuligo.timeTracker.R;
 
 public class TimeFrameListActivity extends BaseActivity {
 

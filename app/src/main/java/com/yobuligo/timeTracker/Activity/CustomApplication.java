@@ -1,4 +1,4 @@
-package com.yobuligo.timeTracker;
+package com.yobuligo.timeTracker.Activity;
 
 import android.app.Application;
 

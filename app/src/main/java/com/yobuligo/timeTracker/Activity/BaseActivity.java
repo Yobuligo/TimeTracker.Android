@@ -1,4 +1,4 @@
-package com.yobuligo.timeTracker;
+package com.yobuligo.timeTracker.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.yobuligo.timeTracker.R;
 import com.yobuligo.timeTracker.Subject.ISubjectContext;
 
 public class BaseActivity extends AppCompatActivity {

@@ -15,7 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.yobuligo.timeTracker.ColorList;
+import com.yobuligo.timeTracker.Activity.ColorList;
 import com.yobuligo.timeTracker.R;
 
 public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectViewHolder> {

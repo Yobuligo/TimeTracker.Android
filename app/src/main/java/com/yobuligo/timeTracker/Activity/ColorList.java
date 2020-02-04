@@ -1,4 +1,6 @@
-package com.yobuligo.timeTracker;
+package com.yobuligo.timeTracker.Activity;
+
+import com.yobuligo.timeTracker.R;
 
 import java.util.ArrayList;
 import java.util.Random;
