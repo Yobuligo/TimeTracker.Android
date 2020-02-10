@@ -3,4 +3,6 @@
     <dimen name="ListItemColumnMargin">12dp</dimen>
     <dimen name="SubjectTextViewMargin">12dp</dimen>
     <dimen name="SubjectImageButtonMargin">12dp</dimen>
+    <dimen name="subject_location">8dp</dimen>
+    <dimen name="time_frame">8dp</dimen>
 </resources>

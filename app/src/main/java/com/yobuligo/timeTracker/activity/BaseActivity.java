@@ -29,23 +29,29 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected ISubjectContext getSubjectContext() {
-        BaseApplication baseApplication = (BaseApplication) getApplication();
-        return baseApplication.getSubjectContext();
+        IApplicationContext applicationContext = ApplicationContext.getInstance();
+        return applicationContext.getSubjectContext();
     }
 
     class BottomNavigationViewListener implements BottomNavigationView.OnNavigationItemSelectedListener {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+            Class activityClass;
             switch (menuItem.getItemId()) {
                 case R.id.menu_item_home:
-                    startActivity(new Intent(getApplicationContext(), SubjectOverviewActivity.class));
-                    return true;
+                    activityClass = SubjectOverviewActivity.class;
+                    break;
                 case R.id.menu_item_tracked_time:
-                    startActivity(new Intent(getApplicationContext(), TimeFrameOverviewActivity.class));
-                    return true;
+                    activityClass = TimeFrameOverviewActivity.class;
+                    break;
                 default:
                     return false;
             }
+
+            Intent intent = new Intent(getApplicationContext(), activityClass);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            return true;
         }
     }
 

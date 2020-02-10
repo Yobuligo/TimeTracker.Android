@@ -16,7 +16,7 @@ public class TimeFrameOverviewActivity extends BaseActivity {
         setContentView(R.layout.activity_time_frame_list);
 
         TimeFrameOverviewAdapter timeFrameOverviewAdapter = new TimeFrameOverviewAdapter(this, getSubjectContext());
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = findViewById(R.id.ui_recycler_view_time_frame);
         recyclerView.setAdapter(timeFrameOverviewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

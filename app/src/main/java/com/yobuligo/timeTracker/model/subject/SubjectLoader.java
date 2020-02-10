@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.yobuligo.timeTracker.activity.ApplicationContext;
 import com.yobuligo.timeTracker.activity.subjectOverviewActivity.SubjectOverviewAdapter;
 
 import java.io.IOException;
@@ -55,6 +56,7 @@ public class SubjectLoader extends AsyncTask<Void, Integer, ArrayList<ISubject>>
                 subjects) {
             subjectContext.getSubjectList().AddSubject(subject);
         }
+        ApplicationContext.getInstance().setSubjectContextLoaded(true);
         subjectOverviewAdapter.notifyDataSetChanged();
     }
 }

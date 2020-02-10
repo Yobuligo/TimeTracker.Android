@@ -1,12 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayoutLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/time_frame"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/ui_img_view_subject_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/ui_txt_subject_end_time"
+        app:layout_constraintEnd_toStartOf="@id/ui_txt_subject_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ui_txt_subject_description" />
 
     <TextView
         android:id="@+id/ui_txt_subject_description"
-        android:width="100dp"
-        android:height="50dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/SubjectImageButtonMargin"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintStart_toEndOf="@id/ui_img_view_subject_location"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</LinearLayoutLayout>
+    <TextView
+        android:id="@+id/ui_txt_subject_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/time_frame"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/cardview_dark_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ui_txt_subject_start_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/cardview_dark_background"
+        app:layout_constraintStart_toStartOf="@id/ui_txt_subject_description"
+        app:layout_constraintTop_toBottomOf="@id/ui_txt_subject_description" />
+
+    <TextView
+        android:id="@+id/ui_txt_subject_start_end_separator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/time_frame"
+        android:text="-"
+        app:layout_constraintStart_toEndOf="@id/ui_txt_subject_start_time"
+        app:layout_constraintTop_toBottomOf="@id/ui_txt_subject_description" />
+
+    <TextView
+        android:id="@+id/ui_txt_subject_end_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/time_frame"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/cardview_dark_background"
+        app:layout_constraintStart_toEndOf="@id/ui_txt_subject_start_end_separator"
+        app:layout_constraintTop_toBottomOf="@id/ui_txt_subject_description" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/time_frame"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ui_txt_subject_end_time" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
