@@ -2,6 +2,7 @@ package com.yobuligo.timeTracker.activity.subjectOverviewActivity;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.yobuligo.timeTracker.activity.ColorList;
 import com.yobuligo.timeTracker.R;
+import com.yobuligo.timeTracker.activity.ColorList;
 import com.yobuligo.timeTracker.model.subject.ISubject;
 import com.yobuligo.timeTracker.model.subject.ISubjectContext;
 import com.yobuligo.timeTracker.model.subject.Location;
@@ -91,7 +92,6 @@ public class SubjectOverviewAdapter extends RecyclerView.Adapter<SubjectOverview
                     toggleLocation();
                 }
             });
-
         }
 
         public void renderElements() {

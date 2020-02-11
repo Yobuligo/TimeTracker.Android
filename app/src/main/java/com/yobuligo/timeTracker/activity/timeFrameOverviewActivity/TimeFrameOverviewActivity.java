@@ -5,8 +5,8 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.yobuligo.timeTracker.activity.BaseActivity;
 import com.yobuligo.timeTracker.R;
+import com.yobuligo.timeTracker.activity.BaseActivity;
 
 public class TimeFrameOverviewActivity extends BaseActivity {
 

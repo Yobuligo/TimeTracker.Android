@@ -42,7 +42,6 @@ public class TimeTracker implements ITimeTracker {
 
         activeTimeFrame.stop();
         activeTimeFrame = null;
-        printTimeFrameList();
     }
 
     private void startNewTimeFrame(ISubject subject) {
@@ -50,18 +49,6 @@ public class TimeTracker implements ITimeTracker {
         timeFrameList.addTimeFrame(timeFrame);
         activeTimeFrame = timeFrame;
         activeTimeFrame.start();
-        printTimeFrameList();
     }
 
-    private void printTimeFrameList() {
-        for (ITimeFrame timeFrame :
-                timeFrameList.getTimeFrames()) {
-            Log.i(getClass().toString(), "printTimeFrame: "
-                    + timeFrame.getSubject().getDescription() + " "
-                    + timeFrame.getLocation() + " "
-                    + timeFrame.getStartTime() + " "
-                    + timeFrame.getEndTime()
-            );
-        }
-    }
 }
