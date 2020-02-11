@@ -29,7 +29,7 @@ public class SubjectLoader extends AsyncTask<Void, Integer, ArrayList<ISubject>>
         ArrayList<ISubject> subjects = new ArrayList<>();
 
         OkHttpClient client = new OkHttpClient();
-        String url = "http://10.0.2.2:8080/api/subjects";
+        String url = "http://10.0.2.2:8082/api/subjects";
         Request request = new Request.Builder()
                 .url(url)
                 .build();
